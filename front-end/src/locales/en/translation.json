@@ -1,0 +1,13 @@
+{
+  "navbar": {
+    "titles": {
+      "title0": "User Dashboard",
+      "title1": "Profile",
+      "title2": "Language",
+      "title3": "Turkish",
+      "title4": "English",
+      "title5": "Log Out",
+      "title6": "Admin Board"
+    }
+  }
+}

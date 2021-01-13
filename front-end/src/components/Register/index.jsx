@@ -42,6 +42,8 @@ const Register = () => {
 
   return (
     <div className="register">
+      <h1>Reporting-System</h1>
+      <br />
       <div className="avatar-wrapper">
         <Avatar
           size={{

@@ -49,6 +49,8 @@ const Login = (props) => {
 
   return (
     <div className="login">
+      <h1>Reporting-System</h1>
+      <br />
       <div className="avatar-wrapper">
         <Avatar
           size={{
