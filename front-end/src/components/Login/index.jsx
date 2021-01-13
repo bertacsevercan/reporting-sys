@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../actions/auth";
-import { Form, Input, Button, Avatar } from "antd";
+import { Form, Input, Button, Avatar, Alert } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "./style.css";
 
@@ -62,6 +62,7 @@ const Login = (props) => {
           icon={<UserOutlined />}
         />
       </div>
+
       <Form
         {...layout}
         name="loginForm"
@@ -69,6 +70,11 @@ const Login = (props) => {
         onFinishFailed={handleLoginFailed}
         initialValues={{ remember: true }}
       >
+        {message && (
+          <Form.Item {...tailLayout}>
+            <Alert message={message} type="error" showIcon />
+          </Form.Item>
+        )}
         <Form.Item
           label="Username"
           name="username"
@@ -96,24 +102,12 @@ const Login = (props) => {
         </Form.Item>
 
         <Form.Item {...tailLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button id="loginButton" type="primary" htmlType="submit">
             Login
           </Button>
-        </Form.Item>
 
-        <Form.Item {...tailLayout}>
-          <Button href="/register" type="secondary">
-            Register
-          </Button>
+          <Button href="/register">Register</Button>
         </Form.Item>
-
-        {message && (
-          <div className="alert danger" role="alert">
-            {" "}
-            {/* change them to antd alert */}
-            {message}
-          </div>
-        )}
       </Form>
     </div>
   );

@@ -13,7 +13,7 @@ const Profile = () => {
   return (
     <div className="profile">
       <h1>
-        <strong>{currentUser.username}</strong>'s Profile 
+        <strong>{currentUser.username}</strong>'s Profile
       </h1>
       <p>
         <strong>Token:</strong> {currentUser.accessToken.substring(0, 20)} ...{" "}

@@ -1,7 +1,11 @@
 .login {
-    padding-top : 2rem;
+  padding-top: 2rem;
 }
 
-.avatar-wrapper{
-    padding-bottom: 1rem;
+.avatar-wrapper {
+  padding-bottom: 1rem;
+}
+
+#loginButton {
+  margin-right: 1rem;
 }

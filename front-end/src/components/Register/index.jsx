@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../actions/auth";
-import { Form, Input, Button, Avatar } from "antd";
+import { Form, Input, Button, Avatar, Alert, Row, Col } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "./style.css";
 
@@ -13,6 +13,7 @@ const layout = {
     span: 8,
   },
 };
+
 const tailLayout = {
   wrapperCol: {
     offset: 8,
@@ -109,32 +110,33 @@ const Register = () => {
             </Form.Item>
 
             <Form.Item {...tailLayout}>
-              <Button type="primary" htmlType="submit">
+              <Button id="registerButton" type="primary" htmlType="submit">
                 Register
               </Button>
-            </Form.Item>
 
-            <Form.Item {...tailLayout}>
-              <Button href="/login" type="secondary">
-                Login
-              </Button>
+              <Button href="/login">Login</Button>
             </Form.Item>
           </>
         )}
         {message && (
-          <div
-            className={
-              successful ? "alert alert-success" : "alert alert-danger" // change these to antd alert
-            }
-            role="alert"
-          >
-            {message}
-            <div>
-              <Button href="/login" type="primary">
-                Login
-              </Button>
-            </div>
-          </div>
+          <>
+            <Row gutter={[0, 24]}>
+              <Col offset={6} span={12}>
+                {successful ? (
+                  <Alert message={message} type="success" showIcon />
+                ) : (
+                  <Alert message={message} type="error" showIcon />
+                )}
+              </Col>
+            </Row>
+            <Row gutter={[0, 24]}>
+              <Col offset={6} span={12}>
+                <Button href="/login" type="primary">
+                  Login
+                </Button>
+              </Col>
+            </Row>
+          </>
         )}
       </Form>
     </div>

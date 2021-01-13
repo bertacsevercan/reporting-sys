@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { getUserBoard } from "../../services/user.service";
+import { useSelector } from "react-redux";
 import "./style.css";
 
 const BoardUser = () => {
   const [content, setContent] = useState("");
+  const { user: currentUser } = useSelector((state) => state.auth);
 
   useEffect(() => {
     getUserBoard().then(
@@ -25,9 +27,8 @@ const BoardUser = () => {
 
   return (
     <div className="boardUser">
-      <header className="jumbotron">
-        <h3>{content}</h3>
-      </header>
+      <h1>Welcome {currentUser.username}</h1>
+      <h3>{content}</h3>
     </div>
   );
 };
