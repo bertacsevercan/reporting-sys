@@ -8,9 +8,10 @@ import {
   LogoutOutlined,
   GlobalOutlined,
 } from "@ant-design/icons";
-import { logout } from "./actions/auth";
+import { logout } from "../../actions/auth";
+import "./style.css";
 
-const { Sider } = Layout;
+const { Sider, Header } = Layout;
 const { SubMenu } = Menu;
 
 const NavBar = () => {
@@ -30,7 +31,8 @@ const NavBar = () => {
 
   return (
     <Sider breakpoint="lg" collapsedWidth="0">
-      <div className="logo">Reporting-System</div>
+      <div className="logo">Reporting System</div>
+
       <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
         {showAdminBoard && (
           <Menu.Item key="1" icon={<UserOutlined />}>
@@ -69,7 +71,7 @@ const NavBar = () => {
               </Link>
             </Menu.Item>
             <Menu.Item key="3" icon={<LogoutOutlined />}>
-              <Link href="/register" className="nav-link" onClick={logOut}>
+              <Link href="/register" className="nav-link">
                 SignUp
               </Link>
             </Menu.Item>
