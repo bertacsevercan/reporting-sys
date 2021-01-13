@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Router, Switch, Route } from "react-router-dom";
 import { history } from "./helpers/history";
 import { clearMessage } from "./actions/message";
@@ -18,6 +18,7 @@ import NavBar from "./components/NavBar";
 const { Header, Content, Footer } = Layout;
 
 function App() {
+  const { user: currentUser } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,13 +31,10 @@ function App() {
     <div className="App">
       <Router history={history}>
         <Layout>
-          <NavBar />
-          <Layout>
-            <Content style={{ margin: "24px 16px 0" }}>
-              <div
-                className="site-layout-content"
-                style={{ padding: 24, minHeight: "88vh" }}
-              >
+          {currentUser ? <NavBar /> : null}
+          <Layout className="layout">
+            <Content>
+              <div className="site-layout-content">
                 <Switch>
                   <Route exact path={["/", "/login"]} component={Login} />
                   <Route exact path="/register" component={Register} />
@@ -45,9 +43,10 @@ function App() {
                   <Route path="/admin" component={BoardAdmin} />
                 </Switch>
               </div>
+           
             </Content>
 
-            <Footer style={{ textAlign: "center" }}>
+            <Footer id="footer">
               Reporting-System ©2021 Created by Bertaç Severcan
             </Footer>
           </Layout>

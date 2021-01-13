@@ -30,7 +30,7 @@ const Login = (props) => {
   const handleLogin = (values) => {
     dispatch(login(values.username, values.password))
       .then(() => {
-        props.history.push("/profile");
+        props.history.push("/user");
         window.location.reload();
       })
       .catch((err) => {
@@ -43,7 +43,7 @@ const Login = (props) => {
   };
 
   if (isLoggedIn) {
-    return <Redirect to="/profile" />;
+    return <Redirect to="/user" />;
   }
 
   return (
@@ -96,7 +96,13 @@ const Login = (props) => {
 
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit">
-            Submit
+            Login
+          </Button>
+        </Form.Item>
+
+        <Form.Item {...tailLayout}>
+          <Button href="/register" type="secondary">
+            Register
           </Button>
         </Form.Item>
 

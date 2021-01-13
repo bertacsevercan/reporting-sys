@@ -11,7 +11,7 @@ import {
 import { logout } from "../../actions/auth";
 import "./style.css";
 
-const { Sider, Header } = Layout;
+const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 const NavBar = () => {
@@ -35,7 +35,7 @@ const NavBar = () => {
 
       <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
         {showAdminBoard && (
-          <Menu.Item key="1" icon={<UserOutlined />}>
+          <Menu.Item key="1" icon={<BookOutlined />}>
             <Link to={"/admin"} className="nav-link">
               Admin Board
             </Link>
@@ -43,40 +43,22 @@ const NavBar = () => {
         )}
 
         {currentUser && (
-          <Menu.Item key="1" icon={<UserOutlined />}>
+          <Menu.Item key="1" icon={<BookOutlined />}>
             <Link to={"/user"} className="nav-link">
-              User
+              Dashboard
             </Link>
           </Menu.Item>
         )}
-
-        {currentUser ? (
-          <>
-            <Menu.Item key="2" icon={<BookOutlined />}>
-              <Link to="/profile" className="nav-link">
-                {currentUser.username}
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="3" icon={<LogoutOutlined />}>
-              <a href="/login" className="nav-link" onClick={logOut}>
-                LogOut
-              </a>
-            </Menu.Item>
-          </>
-        ) : (
-          <>
-            <Menu.Item key="2" icon={<BookOutlined />}>
-              <Link to="/login" className="nav-link">
-                Login
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="3" icon={<LogoutOutlined />}>
-              <Link href="/register" className="nav-link">
-                SignUp
-              </Link>
-            </Menu.Item>
-          </>
-        )}
+        <Menu.Item key="2" icon={<UserOutlined />}>
+          <Link to="/profile" className="nav-link">
+            {currentUser.username}'s profile
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="3" icon={<LogoutOutlined />}>
+          <a href="/login" className="nav-link" onClick={logOut}>
+            Log out
+          </a>
+        </Menu.Item>
 
         {/*  <SubMenu key="sub1" icon={<GlobalOutlined />} title={t("links.language.header0")}>
               <Menu.Item icon={<TrIcon />} onClick={() => {i18next.changeLanguage('tr');}} key="6">{t("links.language.header1")}</Menu.Item>

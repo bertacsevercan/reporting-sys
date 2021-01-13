@@ -19,7 +19,7 @@ const tailLayout = {
   },
 };
 
-const Register = () => {
+const Register = (props) => {
   const [successful, setSuccessful] = useState(false);
   const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
@@ -109,7 +109,7 @@ const Register = () => {
 
             <Form.Item {...tailLayout}>
               <Button type="primary" htmlType="submit">
-                Submit
+                Register
               </Button>
             </Form.Item>
           </>
@@ -122,6 +122,11 @@ const Register = () => {
             role="alert"
           >
             {message}
+            <div>
+              <Button href="/login" type="primary">
+                Login
+              </Button>
+            </div>
           </div>
         )}
       </Form>
