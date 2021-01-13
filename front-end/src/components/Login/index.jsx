@@ -4,20 +4,21 @@ import { Redirect } from "react-router-dom";
 import { login } from "../../actions/auth";
 import { Form, Input, Button, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
+import "./style.css";
 
 const layout = {
   labelCol: {
     span: 8,
   },
   wrapperCol: {
-    span: 16,
+    span: 8,
   },
 };
 
 const tailLayout = {
   wrapperCol: {
     offset: 8,
-    span: 16,
+    span: 8,
   },
 };
 

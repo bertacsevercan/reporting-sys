@@ -12,11 +12,11 @@
   height: 100%;
 }
 
-.ant-layout-content{
+.ant-layout-content {
   padding: 50px 50px 0 50px;
 }
 
 .site-layout-content {
   background-color: #fff;
- /*  min-height: 100vh; */
+  height: 85vh;
 }

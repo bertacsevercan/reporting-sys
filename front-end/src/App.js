@@ -15,7 +15,7 @@ import BoardAdmin from "./components/BoardAdmin";
 import { Layout } from "antd";
 import NavBar from "./components/NavBar";
 
-const { Header, Content, Footer } = Layout;
+const { Content, Footer } = Layout;
 
 function App() {
   const { user: currentUser } = useSelector((state) => state.auth);
@@ -43,11 +43,9 @@ function App() {
                   <Route path="/admin" component={BoardAdmin} />
                 </Switch>
               </div>
-           
             </Content>
-
             <Footer id="footer">
-              Reporting-System ©2021 Created by Bertaç Severcan
+              Reporting-System ©2021 Created by <strong>Bertaç Severcan</strong>
             </Footer>
           </Layout>
         </Layout>

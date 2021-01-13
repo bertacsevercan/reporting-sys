@@ -3,23 +3,24 @@ import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../actions/auth";
 import { Form, Input, Button, Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
+import "./style.css";
 
 const layout = {
   labelCol: {
     span: 8,
   },
   wrapperCol: {
-    span: 16,
+    span: 8,
   },
 };
 const tailLayout = {
   wrapperCol: {
     offset: 8,
-    span: 16,
+    span: 8,
   },
 };
 
-const Register = (props) => {
+const Register = () => {
   const [successful, setSuccessful] = useState(false);
   const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
@@ -110,6 +111,12 @@ const Register = (props) => {
             <Form.Item {...tailLayout}>
               <Button type="primary" htmlType="submit">
                 Register
+              </Button>
+            </Form.Item>
+
+            <Form.Item {...tailLayout}>
+              <Button href="/login" type="secondary">
+                Login
               </Button>
             </Form.Item>
           </>

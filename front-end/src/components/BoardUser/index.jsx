@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import { getUserBoard } from "../../services/user.service";
+import "./style.css";
 
 const BoardUser = () => {
   const [content, setContent] = useState("");
