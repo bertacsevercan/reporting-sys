@@ -101,7 +101,9 @@ const Login = (props) => {
         </Form.Item>
 
         {message && (
-          <div className="alert danger" role="alert"> {/* change them to antd alert */}
+          <div className="alert danger" role="alert">
+            {" "}
+            {/* change them to antd alert */}
             {message}
           </div>
         )}
