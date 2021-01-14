@@ -7,6 +7,7 @@ import {
   BookOutlined,
   LogoutOutlined,
   GlobalOutlined,
+  AreaChartOutlined,
 } from "@ant-design/icons";
 import { logout } from "../../actions/auth";
 import { useTranslation } from "react-i18next";
@@ -83,7 +84,7 @@ const NavBar = () => {
             {t("navbar.titles.title4")}
           </Menu.Item>
         </SubMenu>
-        <Menu.Item key="7" icon={<BookOutlined />}>
+        <Menu.Item key="7" icon={<AreaChartOutlined />}>
           <Link to="/report" className="nav-link">
             Report
           </Link>

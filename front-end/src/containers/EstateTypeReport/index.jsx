@@ -23,7 +23,7 @@ const EstateTypeReport = () => {
         Estate Report
       </Button>
       <Modal
-        title="Location Based Sale Report"
+        title="Estate-Type Based Sale Report"
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}

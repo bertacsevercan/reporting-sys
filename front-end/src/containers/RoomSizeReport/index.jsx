@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import TimeReportForm from "../../components/TimeReportForm";
+import RoomSizeReportForm from "../../components/RoomSizeReportForm";
 import { Modal, Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-import "./style.css";
 
-const TimeReport = () => {
+const RoomSizeReport = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -21,18 +20,18 @@ const TimeReport = () => {
   return (
     <>
       <Button icon={<PlusOutlined />} type="primary" onClick={showModal}>
-        Time Report
+        Room Report
       </Button>
       <Modal
-        title="Time-Based Sales Report"
+        title="Room-Size Based Sale Report"
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
       >
-        <TimeReportForm />
+        <RoomSizeReportForm />
       </Modal>
     </>
   );
 };
 
-export default TimeReport;
+export default RoomSizeReport;

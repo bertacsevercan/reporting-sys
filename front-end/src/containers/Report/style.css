@@ -1,3 +1,12 @@
 .report {
   padding-top: 2rem;
 }
+
+.report h1 {
+  padding-bottom: 1rem;
+}
+
+.reports-flex {
+  display: flex;
+  justify-content: space-around;
+}

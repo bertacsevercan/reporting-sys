@@ -19,7 +19,7 @@ const tailLayout = {
   },
 };
 
-const EstateTypeReportForm = () => {
+const RoomSizeReportForm = () => {
   const onFinish = (values) => {
     console.log("Success:", values);
   };
@@ -29,10 +29,10 @@ const EstateTypeReportForm = () => {
   };
 
   return (
-    <div className="estateTypeReportForm">
+    <div className="roomSizeReportForm">
       <Form
         {...layout}
-        name="estateTypeReportForm"
+        name="roomSizeReportForm"
         initialValues={{
           remember: true,
         }}
@@ -75,24 +75,24 @@ const EstateTypeReportForm = () => {
         </Form.Item>
 
         <Form.Item
-          label="Estate Type"
-          name="estate"
+          label="Room Size"
+          name="room"
           rules={[
             {
               required: true,
-              message: "Please choose the type of estate from the list!",
+              message: "Please choose the number of rooms from the list!",
             },
           ]}
         >
           <Select
-            placeholder="Select the type of estate from the list!"
+            placeholder="Select the number of rooms from the list!"
             allowClear
           >
-            <Option value="single family">Single Family</Option>
-            <Option value="apartment">Apartment</Option>
-            <Option value="condo">Condo</Option>
-            <Option value="co-op">Co-op</Option>
-            <Option value="store">Store</Option>
+            <Option value="studio">Studio</Option>
+            <Option value="1+1">1+1</Option>
+            <Option value="2+1">2+1</Option>
+            <Option value="3+1">3+1</Option>
+            <Option value="dublex">Dublex</Option>
           </Select>
         </Form.Item>
 
@@ -106,4 +106,4 @@ const EstateTypeReportForm = () => {
   );
 };
 
-export default EstateTypeReportForm;
+export default RoomSizeReportForm;
