@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../actions/auth";
-import { Form, Input, Button, Avatar, Alert, Row, Col } from "antd";
+import { Form, Input, Button, Avatar, Alert, Row, Col, Typography } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "./style.css";
+
+const { Title } = Typography;
 
 const layout = {
   labelCol: {
@@ -42,7 +44,7 @@ const Register = () => {
 
   return (
     <div className="register">
-      <h1>Reporting-System</h1>
+      <Title>Reporting-System</Title>
       <br />
       <div className="avatar-wrapper">
         <Avatar

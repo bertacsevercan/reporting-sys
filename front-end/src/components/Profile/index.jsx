@@ -1,7 +1,10 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
+import { Typography } from "antd";
 import { useSelector } from "react-redux";
 import "./style.css";
+
+const { Title, Text } = Typography;
 
 const Profile = () => {
   const { user: currentUser } = useSelector((state) => state.auth);
@@ -12,19 +15,19 @@ const Profile = () => {
 
   return (
     <div className="profile">
-      <h1>
+      <Title>
         <strong>{currentUser.username}</strong>'s Profile
-      </h1>
-      <p>
+      </Title>
+      <Text>
         <strong>Token:</strong> {currentUser.accessToken.substring(0, 20)} ...{" "}
         {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
-      </p>
-      <p>
+      </Text>
+      <Text>
         <strong>Id:</strong> {currentUser.id}
-      </p>
-      <p>
+      </Text>
+      <Text>
         <strong>Email:</strong> {currentUser.email}
-      </p>
+      </Text>
       <strong>Authorities: </strong>
       {currentUser.roles}
     </div>

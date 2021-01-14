@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-
+import { Typography } from "antd";
 import { getAdminBoard } from "../../services/user.service";
+
+const { Title } = Typography;
 
 const BoardAdmin = () => {
   const [content, setContent] = useState("");
@@ -25,9 +27,7 @@ const BoardAdmin = () => {
 
   return (
     <div className="boardAdmin">
-      <header className="jumbotron">
-        <h3>{content}</h3>
-      </header>
+      <Title level={3}>{content}</Title>
     </div>
   );
 };

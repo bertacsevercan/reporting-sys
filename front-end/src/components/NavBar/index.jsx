@@ -83,6 +83,11 @@ const NavBar = () => {
             {t("navbar.titles.title4")}
           </Menu.Item>
         </SubMenu>
+        <Menu.Item key="7" icon={<BookOutlined />}>
+          <Link to="/report" className="nav-link">
+            Report
+          </Link>
+        </Menu.Item>
         <Menu.Item key="3" icon={<LogoutOutlined />}>
           <a href="/login" className="nav-link" onClick={logOut}>
             {t("navbar.titles.title5")}

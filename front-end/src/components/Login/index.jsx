@@ -2,9 +2,11 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../actions/auth";
-import { Form, Input, Button, Avatar, Alert } from "antd";
+import { Form, Input, Button, Avatar, Alert, Typography } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "./style.css";
+
+const { Title } = Typography;
 
 const layout = {
   labelCol: {
@@ -49,7 +51,7 @@ const Login = (props) => {
 
   return (
     <div className="login">
-      <h1>Reporting-System</h1>
+      <Title>Reporting-System</Title>
       <br />
       <div className="avatar-wrapper">
         <Avatar

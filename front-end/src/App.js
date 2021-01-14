@@ -16,6 +16,7 @@ import BoardUser from "./components/BoardUser";
 import BoardAdmin from "./components/BoardAdmin";
 import { Layout } from "antd";
 import NavBar from "./components/NavBar";
+import Report from "./containers/Report";
 
 const { Content, Footer } = Layout;
 
@@ -44,6 +45,7 @@ function App() {
                     <Route exact path="/profile" component={Profile} />
                     <Route path="/user" component={BoardUser} />
                     <Route path="/admin" component={BoardAdmin} />
+                    <Route path="/report" component={Report} />
                   </Switch>
                 </div>
               </Content>

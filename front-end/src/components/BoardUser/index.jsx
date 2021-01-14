@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { getUserBoard } from "../../services/user.service";
 import { useSelector } from "react-redux";
+import { Typography } from "antd";
 import "./style.css";
+
+const { Title } = Typography;
 
 const BoardUser = () => {
   const [content, setContent] = useState("");
@@ -27,8 +30,8 @@ const BoardUser = () => {
 
   return (
     <div className="boardUser">
-      <h1>Welcome {currentUser.username}</h1>
-      <h3>{content}</h3>
+      <Title>Welcome {currentUser.username}</Title>
+      <Title level={3}>{content}</Title>
     </div>
   );
 };
