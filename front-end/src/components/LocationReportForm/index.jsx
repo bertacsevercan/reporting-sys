@@ -1,5 +1,7 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Form, InputNumber, Button, Select } from "antd";
+import { createNewReport } from "../../actions/report";
 
 const { Option } = Select;
 
@@ -20,7 +22,13 @@ const tailLayout = {
 };
 
 const LocationReportForm = () => {
+
+  const dispatch = useDispatch();
+  const { user: currentUser } = useSelector((state) => state.auth);
+
+
   const onFinish = (values) => {
+    dispatch(createNewReport(values.sale, values.type, currentUser.id, values.location))
     console.log("Success:", values);
   };
 
