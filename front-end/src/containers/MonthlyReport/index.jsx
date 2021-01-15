@@ -6,74 +6,217 @@ import "./style.css";
 const { Title, Text } = Typography;
 
 const MonthlyReport = (props) => {
-  let studioSold = 0;
-  let onePlusOneSold = 0;
-  let twoPlusOneSold = 0;
-  let threePlusOneSold = 0;
-  let dublexSold = 0;
+  let janSold = 0;
+  let febSold = 0;
+  let marchSold = 0;
+  let aprilSold = 0;
+  let maySold = 0;
+  let juneSold = 0;
+  let julySold = 0;
+  let augSold = 0;
+  let sepSold = 0;
+  let octSold = 0;
+  let novSold = 0;
+  let decSold = 0;
 
-  let studioRental = 0;
-  let onePlusOneRental = 0;
-  let twoPlusOneRental = 0;
-  let threePlusOneRental = 0;
-  let dublexRental = 0;
+  let janRental = 0;
+  let febRental = 0;
+  let marchRental = 0;
+  let aprilRental = 0;
+  let mayRental = 0;
+  let juneRental = 0;
+  let julyRental = 0;
+  let augRental = 0;
+  let sepRental = 0;
+  let octRental = 0;
+  let novRental = 0;
+  let decRental = 0;
 
   const soldList = [];
   const rentalList = [];
+  const date = new Date();
+  const currentYear = date.getFullYear().toString() + "-";
 
   props.data.forEach((report) => {
-    if (report.estateType === "studio" && report.saleType === "sold") {
-      studioSold += report.saleAmount;
-    } else if (report.estateType === "1+1" && report.saleType === "sold") {
-      onePlusOneSold += report.saleAmount;
-    } else if (report.estateType === "2+1" && report.saleType === "sold") {
-      twoPlusOneSold += report.saleAmount;
-    } else if (report.estateType === "3+1" && report.saleType === "sold") {
-      threePlusOneSold += report.saleAmount;
-    } else if (report.estateType === "dublex" && report.saleType === "sold") {
-      dublexSold += report.saleAmount;
+    if (
+      report.time.startsWith(currentYear + "01") &&
+      report.saleType === "sold"
+    ) {
+      janSold += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "02") &&
+      report.saleType === "sold"
+    ) {
+      febSold += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "03") &&
+      report.saleType === "sold"
+    ) {
+      marchSold += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "04") &&
+      report.saleType === "sold"
+    ) {
+      aprilSold += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "05") &&
+      report.saleType === "sold"
+    ) {
+      maySold += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "06") &&
+      report.saleType === "sold"
+    ) {
+      juneSold += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "07") &&
+      report.saleType === "sold"
+    ) {
+      julySold += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "08") &&
+      report.saleType === "sold"
+    ) {
+      augSold += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "09") &&
+      report.saleType === "sold"
+    ) {
+      sepSold += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "10") &&
+      report.saleType === "sold"
+    ) {
+      octSold += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "11") &&
+      report.saleType === "sold"
+    ) {
+      novSold += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "12") &&
+      report.saleType === "sold"
+    ) {
+      decSold += report.saleAmount;
     }
 
-    if (report.roomSize === "studio" && report.saleType === "rental") {
-      studioRental += report.saleAmount;
-    } else if (report.roomSize === "1+1" && report.saleType === "rental") {
-      onePlusOneRental += report.saleAmount;
-    } else if (report.roomSize === "2+1" && report.saleType === "rental") {
-      twoPlusOneRental += report.saleAmount;
-    } else if (report.roomSize === "3+1" && report.saleType === "rental") {
-      threePlusOneRental += report.saleAmount;
-    } else if (report.roomSize === "dublex" && report.saleType === "rental") {
-      dublexRental += report.saleAmount;
+    if (
+      report.time.startsWith(currentYear + "01") &&
+      report.saleType === "rental"
+    ) {
+      janRental += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "02") &&
+      report.saleType === "rental"
+    ) {
+      febRental += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "03") &&
+      report.saleType === "rental"
+    ) {
+      marchRental += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "04") &&
+      report.saleType === "rental"
+    ) {
+      aprilRental += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "05") &&
+      report.saleType === "rental"
+    ) {
+      mayRental += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "06") &&
+      report.saleType === "rold"
+    ) {
+      juneRental += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "07") &&
+      report.saleType === "rental"
+    ) {
+      julyRental += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "08") &&
+      report.saleType === "rental"
+    ) {
+      augRental += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "09") &&
+      report.saleType === "rental"
+    ) {
+      sepRental += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "10") &&
+      report.saleType === "rental"
+    ) {
+      octRental += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "11") &&
+      report.saleType === "rental"
+    ) {
+      novRental += report.saleAmount;
+    } else if (
+      report.time.startsWith(currentYear + "12") &&
+      report.saleType === "rental"
+    ) {
+      decRental += report.saleAmount;
     }
   });
 
   soldList.push(
-    studioSold,
-    onePlusOneSold,
-    twoPlusOneSold,
-    threePlusOneSold,
-    dublexSold
+    janSold,
+    febSold,
+    marchSold,
+    aprilSold,
+    maySold,
+    juneSold,
+    julySold,
+    augSold,
+    sepSold,
+    octSold,
+    novSold,
+    decSold
   );
 
   rentalList.push(
-    studioRental,
-    onePlusOneRental,
-    twoPlusOneRental,
-    threePlusOneRental,
-    dublexRental
+    janRental,
+    febRental,
+    marchRental,
+    aprilRental,
+    mayRental,
+    juneRental,
+    julyRental,
+    augRental,
+    sepRental,
+    octRental,
+    novRental,
+    decRental
   );
 
   const data = {
-    labels: ["Studio", "1+1", "2+1", "3+1", "Dublex"],
+    labels: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ],
     datasets: [
       {
         label: ["Sold"],
-        backgroundColor: "blue",
+        backgroundColor: "brown",
         data: soldList,
       },
       {
         label: ["Rental"],
-        backgroundColor: "red",
+        backgroundColor: "orange",
         data: rentalList,
       },
     ],
@@ -84,25 +227,25 @@ const MonthlyReport = (props) => {
 
   for (let i = 0; i < data.labels.length; i++) {
     soldObjList.push({
-      room: data.labels[i],
+      month: data.labels[i],
       sale: soldList[i],
     });
     rentalObjList.push({
-      room: data.labels[i],
+      month: data.labels[i],
       sale: rentalList[i],
     });
   }
 
   const soldListData = soldObjList.map((obj) => (
     <Text>
-      With the room size of <b>{obj.room}</b>, there has been <b>{obj.sale}</b>{" "}
+      In the month of <b>{obj.month}</b>, there has been <b>{obj.sale}</b>{" "}
       sales.
     </Text>
   ));
 
   const rentalListData = rentalObjList.map((obj) => (
     <Text>
-      With the room size of <b>{obj.room}</b>, there has been <b>{obj.sale}</b>{" "}
+      In the month of <b>{obj.month}</b>, there has been <b>{obj.sale}</b>{" "}
       rentals.
     </Text>
   ));
@@ -115,8 +258,8 @@ const MonthlyReport = (props) => {
       <div className="report-flex">
         <List
           size="small"
-          pagination={{ pageSize: 5 }}
-          header="Number of estate sales/rentals made filtered by room type"
+          pagination={{ pageSize: 6 }}
+          header="Number of estate sales/rentals made, filtered by the months of the current year."
           bordered
           dataSource={listData}
           renderItem={(item) => <List.Item>{item}</List.Item>}
