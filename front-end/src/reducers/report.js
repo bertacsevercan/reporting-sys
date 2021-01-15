@@ -26,7 +26,7 @@ import {
           ...state,
           saleAmount : payload,
           saleType : payload,
-          userId : user,
+          userId : payload,
           time : payload,
           location : payload,
           estateType : payload,
@@ -41,14 +41,14 @@ import {
     }
   }
 
-  export const getReport =  (state = initialState, action) => {
+  export const getReport =  (state = {reports : []}, action) => {
     const { type, payload } = action;
   
     switch (type) {
       case FETCH_REPORT_SUCCESS:
         return {
             ...state,
-            data : [payload]
+            reports : payload,
         };
       case FETCH_REPORT_FAIL:
         return {

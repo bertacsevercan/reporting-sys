@@ -9,7 +9,7 @@ import {
   import { createReport, getReports } from "../services/report.service";
 
 export const createNewReport = (saleAmount, saleType, userId, time, location, estateType, roomSize) => (dispatch) => {
-    return createReport(saleAmount, saleType, userId, time, estateType, roomSize, location).then(
+    return createReport(saleAmount, saleType, userId, time, location, estateType, roomSize).then(
       (data) => {
         dispatch({
           type: CREATE_REPORT_SUCCESS,
@@ -43,13 +43,13 @@ export const createNewReport = (saleAmount, saleType, userId, time, location, es
 
 export const fetchReports = (userId) => (dispatch) => {
     return getReports(userId).then(
-      (data) => {
-        dispatch({
+      (res) => {
+        return dispatch({
           type: FETCH_REPORT_SUCCESS,
-          payload: data,
+          payload: res.data,
         });
   
-        return Promise.resolve();
+        //return Promise.resolve();
       },
       (error) => {
         const message =
