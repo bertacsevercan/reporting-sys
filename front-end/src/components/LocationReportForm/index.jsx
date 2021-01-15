@@ -22,13 +22,13 @@ const tailLayout = {
 };
 
 const LocationReportForm = () => {
-
   const dispatch = useDispatch();
   const { user: currentUser } = useSelector((state) => state.auth);
 
-
   const onFinish = (values) => {
-    dispatch(createNewReport(values.sale, values.type, currentUser.id, values.location))
+    dispatch(
+      createNewReport(values.sale, values.type, currentUser.id, values.location)
+    );
     console.log("Success:", values);
   };
 

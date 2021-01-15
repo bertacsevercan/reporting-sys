@@ -22,18 +22,25 @@ const tailLayout = {
 };
 
 const ReportForm = () => {
-
   const dispatch = useDispatch();
   const { user: currentUser } = useSelector((state) => state.auth);
 
-
   const onFinish = (fieldsValue) => {
     const values = {
-        ...fieldsValue,
-        time: fieldsValue["time"].format("YYYY-MM"),
-      };
-    dispatch(createNewReport(values.sale, values.type, currentUser.id, 
-        values.time, values.location, values.estate, values.room))
+      ...fieldsValue,
+      time: fieldsValue["time"].format("YYYY-MM"),
+    };
+    dispatch(
+      createNewReport(
+        values.sale,
+        values.type,
+        currentUser.id,
+        values.time,
+        values.location,
+        values.estate,
+        values.room
+      )
+    );
     console.log("Success:", values);
   };
 
@@ -163,7 +170,6 @@ const ReportForm = () => {
         >
           <DatePicker picker="month" />
         </Form.Item>
-
 
         <Form.Item {...tailLayout}>
           <Button type="primary" htmlType="submit">

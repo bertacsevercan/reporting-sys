@@ -2,7 +2,15 @@ import axios from "axios";
 
 const API_URL = "http://localhost:8080/api/report";
 
-export const createReport = (saleAmount, saleType, userId, time, location, estateType, roomSize ) => {
+export const createReport = (
+  saleAmount,
+  saleType,
+  userId,
+  time,
+  location,
+  estateType,
+  roomSize
+) => {
   return axios.post(API_URL, {
     saleAmount,
     saleType,
@@ -10,11 +18,10 @@ export const createReport = (saleAmount, saleType, userId, time, location, estat
     estateType,
     roomSize,
     time,
-    location
+    location,
   });
 };
 
 export const getReports = (userId) => {
-    return (userId ? axios.get(API_URL + "?userId=" + userId) : axios.get(API_URL));
-    
+  return userId ? axios.get(API_URL + "?userId=" + userId) : axios.get(API_URL);
 };

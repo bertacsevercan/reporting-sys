@@ -6,7 +6,6 @@
   padding-bottom: 1rem;
 }
 
-.reports-flex {
-  display: flex;
-  justify-content: space-around;
+.addReportButton {
+  padding-bottom: 1rem;
 }
