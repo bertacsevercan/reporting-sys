@@ -115,7 +115,7 @@ const EstateTypeReport = (props) => {
         <List
           size="small"
           pagination={{ pageSize: 5 }}
-          header="Number of estate sales/rentals made filtered by estate type"
+          header="Number of estate sales/rentals made, filtered by estate type."
           bordered
           dataSource={listData}
           renderItem={(item) => <List.Item>{item}</List.Item>}

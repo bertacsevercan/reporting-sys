@@ -5,7 +5,7 @@ import "./style.css";
 
 const { Title, Text } = Typography;
 
-const RoomSizeReport = (props) => {
+const MonthlyReport = (props) => {
   let studioSold = 0;
   let onePlusOneSold = 0;
   let twoPlusOneSold = 0;
@@ -22,15 +22,15 @@ const RoomSizeReport = (props) => {
   const rentalList = [];
 
   props.data.forEach((report) => {
-    if (report.roomSize === "studio" && report.saleType === "sold") {
+    if (report.estateType === "studio" && report.saleType === "sold") {
       studioSold += report.saleAmount;
-    } else if (report.roomSize === "1+1" && report.saleType === "sold") {
+    } else if (report.estateType === "1+1" && report.saleType === "sold") {
       onePlusOneSold += report.saleAmount;
-    } else if (report.roomSize === "2+1" && report.saleType === "sold") {
+    } else if (report.estateType === "2+1" && report.saleType === "sold") {
       twoPlusOneSold += report.saleAmount;
-    } else if (report.roomSize === "3+1" && report.saleType === "sold") {
+    } else if (report.estateType === "3+1" && report.saleType === "sold") {
       threePlusOneSold += report.saleAmount;
-    } else if (report.roomSize === "dublex" && report.saleType === "sold") {
+    } else if (report.estateType === "dublex" && report.saleType === "sold") {
       dublexSold += report.saleAmount;
     }
 
@@ -110,13 +110,13 @@ const RoomSizeReport = (props) => {
   const listData = [...soldListData, ...rentalListData];
 
   return (
-    <div className="roomSizeReport">
+    <div className="monthlyReport">
       <Title level={3}>Analysis</Title>
       <div className="report-flex">
         <List
           size="small"
           pagination={{ pageSize: 5 }}
-          header="Number of estate sales/rentals made, filtered by room type."
+          header="Number of estate sales/rentals made filtered by room type"
           bordered
           dataSource={listData}
           renderItem={(item) => <List.Item>{item}</List.Item>}
@@ -136,4 +136,4 @@ const RoomSizeReport = (props) => {
   );
 };
 
-export default RoomSizeReport;
+export default MonthlyReport;

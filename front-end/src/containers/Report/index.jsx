@@ -7,6 +7,7 @@ import EstateTypeReport from "../EstateTypeReport";
 import "./style.css";
 import { getReports } from "../../services/report.service";
 import RoomSizeReport from "../RoomSizeReport";
+import YearlyReport from "../YearlyReport";
 
 const { Title } = Typography;
 const { TabPane } = Tabs;
@@ -35,7 +36,7 @@ const Report = () => {
           <LocationReport data={data} />
         </TabPane>
         <TabPane tab="Monthly" key="2">
-          a
+          Montly content here!
         </TabPane>
         <TabPane tab="Estate-Type" key="3">
           <EstateTypeReport data={data} />
@@ -44,7 +45,7 @@ const Report = () => {
           <RoomSizeReport data={data} />
         </TabPane>
         <TabPane tab="Yearly" key="5">
-          Content of Tab Pane 3
+          <YearlyReport data={data} />
         </TabPane>
       </Tabs>
     </div>

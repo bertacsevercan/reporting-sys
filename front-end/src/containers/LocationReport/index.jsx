@@ -109,7 +109,7 @@ const LocationReport = (props) => {
         <List
           size="small"
           pagination={{ pageSize: 5 }}
-          header="Number of estate sales/rentals made filtered by location"
+          header="Number of estate sales/rentals made, filtered by location."
           bordered
           dataSource={listData}
           renderItem={(item) => <List.Item>{item}</List.Item>}
