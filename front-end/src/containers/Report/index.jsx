@@ -15,6 +15,7 @@ const { TabPane } = Tabs;
 
 const Report = () => {
   const [data, setData] = useState([]);
+
   const { user: currentUser } = useSelector((state) => state.auth);
 
   useEffect(() => {

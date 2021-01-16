@@ -4,7 +4,7 @@ import { Modal, Button } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import "./style.css";
 
-const LocationReport = () => {
+const ReportModal = ({ count, setCount }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -35,4 +35,4 @@ const LocationReport = () => {
   );
 };
 
-export default LocationReport;
+export default ReportModal;

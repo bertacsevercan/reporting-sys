@@ -1,4 +1,5 @@
 import axios from "axios";
+import authHeader from "./auth-header";
 
 const API_URL = "http://localhost:8080/api/report";
 
@@ -23,5 +24,7 @@ export const createReport = (
 };
 
 export const getReports = (userId) => {
-  return userId ? axios.get(API_URL + "?userId=" + userId) : axios.get(API_URL);
+  return userId
+    ? axios.get(API_URL + "?userId=" + userId, { headers: authHeader() })
+    : axios.get(API_URL, { headers: authHeader() });
 };

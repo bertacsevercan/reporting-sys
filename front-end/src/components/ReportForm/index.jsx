@@ -22,6 +22,8 @@ const tailLayout = {
 };
 
 const ReportForm = () => {
+  const [form] = Form.useForm();
+
   const dispatch = useDispatch();
   const { user: currentUser } = useSelector((state) => state.auth);
 
@@ -42,6 +44,7 @@ const ReportForm = () => {
       )
     );
     console.log("Success:", values);
+    form.resetFields();
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -52,6 +55,7 @@ const ReportForm = () => {
     <div className="ReportForm">
       <Form
         {...layout}
+        form={form}
         name="ReportForm"
         initialValues={{
           remember: true,
