@@ -101,7 +101,7 @@ const RoomSizeReport = (props) => {
       `With the room size of ${obj.room}, there has been ${obj.sale} sales.`
   );
 
-  const rentalListTexts = soldObjList.map(
+  const rentalListTexts = rentalObjList.map(
     (obj) =>
       `With the room size of ${obj.room}, there has been ${obj.sale} rentals.`
   );

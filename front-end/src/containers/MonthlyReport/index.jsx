@@ -243,7 +243,7 @@ const MonthlyReport = (props) => {
     (obj) => `In the month of ${obj.month}, there has been ${obj.sale} sales.`
   );
 
-  const rentalListTexts = soldObjList.map(
+  const rentalListTexts = rentalObjList.map(
     (obj) => `In the month of ${obj.month}, there has been ${obj.sale} rentals.`
   );
 

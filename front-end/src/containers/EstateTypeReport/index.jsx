@@ -100,7 +100,7 @@ const EstateTypeReport = (props) => {
       `With the estate type of ${obj.estate}, there has been ${obj.sale} sales.`
   );
 
-  const rentalListTexts = soldObjList.map(
+  const rentalListTexts = rentalObjList.map(
     (obj) =>
       `With the estate type of ${obj.estate}, there has been ${obj.sale} rentals.`
   );

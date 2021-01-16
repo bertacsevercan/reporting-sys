@@ -1,10 +1,16 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { Typography } from "antd";
+import { Card, Avatar, Typography } from "antd";
+import {
+  EditOutlined,
+  EllipsisOutlined,
+  SettingOutlined,
+} from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import "./style.css";
 
-const { Title, Text } = Typography;
+const { Title } = Typography;
+const { Meta } = Card;
 
 const Profile = () => {
   const { user: currentUser } = useSelector((state) => state.auth);
@@ -18,18 +24,30 @@ const Profile = () => {
       <Title>
         <strong>{currentUser.username}</strong>'s Profile
       </Title>
-      <Text>
-        <strong>Token:</strong> {currentUser.accessToken.substring(0, 20)} ...{" "}
-        {currentUser.accessToken.substr(currentUser.accessToken.length - 20)}
-      </Text>
-      <Text>
-        <strong>Id:</strong> {currentUser.id}
-      </Text>
-      <Text>
-        <strong>Email:</strong> {currentUser.email}
-      </Text>
-      <strong>Authorities: </strong>
-      {currentUser.roles}
+      <div className="card-wrapper">
+        <Card
+          style={{ width: 300, marginTop: 16 }}
+          cover={
+            <img
+              alt="example"
+              src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+            />
+          }
+          actions={[
+            <SettingOutlined key="setting" />,
+            <EditOutlined key="edit" />,
+            <EllipsisOutlined key="ellipsis" />,
+          ]}
+        >
+          <Meta
+            avatar={
+              <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+            }
+            title={currentUser.username}
+            description={`Email: ${currentUser.email}`}
+          />
+        </Card>
+      </div>
     </div>
   );
 };

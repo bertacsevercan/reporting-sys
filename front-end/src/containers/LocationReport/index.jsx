@@ -94,7 +94,7 @@ const LocationReport = (props) => {
       `In the location of ${obj.location}, there has been ${obj.sale} sales.`
   );
 
-  const rentalListTexts = soldObjList.map(
+  const rentalListTexts = rentalObjList.map(
     (obj) =>
       `In the location of ${obj.location}, there has been ${obj.sale} rentals.`
   );
