@@ -1,11 +1,14 @@
-import React from "react";
-import { Typography, List } from "antd";
+import React, { useRef } from "react";
+import { Typography, List, Button } from "antd";
+import { createPDF } from "../../services/pdf.service";
 import { Bar } from "react-chartjs-2";
 import "./style.css";
 
 const { Title, Text } = Typography;
 
 const YearlyReport = (props) => {
+  const chartRef = useRef(null);
+
   let firstYearSold = 0;
   let secondYearSold = 0;
   let thirdYearSold = 0;
@@ -126,24 +129,39 @@ const YearlyReport = (props) => {
     });
   }
 
-  const soldListData = soldObjList.map((obj) => (
-    <Text>
-      In the year of <b>{obj.year}</b>, there has been <b>{obj.sale}</b> sales.
-    </Text>
-  ));
+  const soldListTexts = soldObjList.map(
+    (obj) => `In the year of  ${obj.year}, there has been ${obj.sale} sales.`
+  );
 
-  const rentalListData = rentalObjList.map((obj) => (
-    <Text>
-      In the year of <b>{obj.year}</b>, there has been <b>{obj.sale}</b>{" "}
-      rentals.
-    </Text>
-  ));
+  const rentalListTexts = soldObjList.map(
+    (obj) => `In the year of  ${obj.year}, there has been ${obj.sale} rentals.`
+  );
+
+  const soldListData = soldListTexts.map((text) => <Text>{text}</Text>);
+
+  const rentalListData = rentalListTexts.map((text) => <Text>{text}</Text>);
 
   const listData = [...soldListData, ...rentalListData];
+  const texts = [...soldListTexts, ...rentalListTexts];
 
   return (
     <div className="yearlyReport">
-      <Title level={3}>Analysis</Title>
+      <div className="titleButton-flex">
+        <Title level={3}>Analysis</Title>
+        <Button
+          onClick={() =>
+            createPDF(
+              "Sale Report(Yearly)",
+              "Number of estate sales/rentals made, filtered by year.",
+              texts,
+              chartRef
+            )
+          }
+          type="dashed"
+        >
+          Download PDF
+        </Button>
+      </div>
       <div className="report-flex">
         <List
           size="small"
@@ -156,6 +174,7 @@ const YearlyReport = (props) => {
         <div>
           <Bar
             data={data}
+            ref={chartRef}
             width={600}
             height={300}
             options={{

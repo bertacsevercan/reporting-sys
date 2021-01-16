@@ -1,11 +1,14 @@
-import React from "react";
-import { Typography, List } from "antd";
+import React, { useRef } from "react";
+import { Typography, List, Button } from "antd";
 import { Bar } from "react-chartjs-2";
+import { createPDF } from "../../services/pdf.service";
 import "./style.css";
 
 const { Title, Text } = Typography;
 
 const MonthlyReport = (props) => {
+  const chartRef = useRef(null);
+
   let janSold = 0;
   let febSold = 0;
   let marchSold = 0;
@@ -236,25 +239,40 @@ const MonthlyReport = (props) => {
     });
   }
 
-  const soldListData = soldObjList.map((obj) => (
-    <Text>
-      In the month of <b>{obj.month}</b>, there has been <b>{obj.sale}</b>{" "}
-      sales.
-    </Text>
-  ));
+  const soldListTexts = soldObjList.map(
+    (obj) => `In the month of ${obj.month}, there has been ${obj.sale} sales.`
+  );
 
-  const rentalListData = rentalObjList.map((obj) => (
-    <Text>
-      In the month of <b>{obj.month}</b>, there has been <b>{obj.sale}</b>{" "}
-      rentals.
-    </Text>
-  ));
+  const rentalListTexts = soldObjList.map(
+    (obj) => `In the month of ${obj.month}, there has been ${obj.sale} rentals.`
+  );
+
+  const soldListData = soldListTexts.map((text) => <Text>{text}</Text>);
+
+  const rentalListData = rentalListTexts.map((text) => <Text>{text}</Text>);
 
   const listData = [...soldListData, ...rentalListData];
+  const texts = [...soldListTexts, ...rentalListTexts];
 
   return (
     <div className="monthlyReport">
-      <Title level={3}>Analysis</Title>
+      <div className="titleButton-flex">
+        <Title level={3}>Analysis</Title>
+        <Button
+          onClick={() =>
+            createPDF(
+              "Sale Report(Monthly)",
+              "Number of estate sales/rentals made, filtered by the months of the current year.",
+              texts,
+              chartRef,
+              true
+            )
+          }
+          type="dashed"
+        >
+          Download PDF
+        </Button>
+      </div>
       <div className="report-flex">
         <List
           size="small"
@@ -267,6 +285,7 @@ const MonthlyReport = (props) => {
         <div>
           <Bar
             data={data}
+            ref={chartRef}
             width={600}
             height={300}
             options={{

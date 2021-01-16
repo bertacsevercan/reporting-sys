@@ -1,11 +1,14 @@
-import React from "react";
-import { Typography, List } from "antd";
+import React, { useRef } from "react";
+import { Typography, List, Button } from "antd";
 import { Bar } from "react-chartjs-2";
+import { createPDF } from "../../services/pdf.service";
 import "./style.css";
 
 const { Title, Text } = Typography;
 
 const LocationReport = (props) => {
+  const chartRef = useRef(null);
+
   let izmirSold = 0;
   let istanbulSold = 0;
   let ankaraSold = 0;
@@ -86,7 +89,21 @@ const LocationReport = (props) => {
     });
   }
 
-  const soldListData = soldObjList.map((obj) => (
+  const soldListTexts = soldObjList.map(
+    (obj) =>
+      `In the location of ${obj.location}, there has been ${obj.sale} sales.`
+  );
+
+  const rentalListTexts = soldObjList.map(
+    (obj) =>
+      `In the location of ${obj.location}, there has been ${obj.sale} rentals.`
+  );
+
+  const soldListData = soldListTexts.map((text) => <Text>{text}</Text>);
+
+  const rentalListData = rentalListTexts.map((text) => <Text>{text}</Text>);
+
+  /*   const soldListData = soldObjList.map((obj) => (
     <Text>
       In the location of <b>{obj.location}</b>, there has been <b>{obj.sale}</b>{" "}
       sales.
@@ -99,12 +116,29 @@ const LocationReport = (props) => {
       rentals.
     </Text>
   ));
+ */
 
+  const texts = [...soldListTexts, ...rentalListTexts];
   const listData = [...soldListData, ...rentalListData];
 
   return (
     <div className="locationReport">
-      <Title level={3}>Analysis</Title>
+      <div className="titleButton-flex">
+        <Title level={3}>Analysis</Title>
+        <Button
+          onClick={() =>
+            createPDF(
+              "Sale Report(Location)",
+              "Number of estate sales/rentals made, filtered by location.",
+              texts,
+              chartRef
+            )
+          }
+          type="dashed"
+        >
+          Download PDF
+        </Button>
+      </div>
       <div className="report-flex">
         <List
           size="small"
@@ -117,6 +151,7 @@ const LocationReport = (props) => {
         <div>
           <Bar
             data={data}
+            ref={chartRef}
             width={600}
             height={300}
             options={{

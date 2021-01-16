@@ -1,11 +1,14 @@
-import React from "react";
-import { Typography, List } from "antd";
+import React, { useRef } from "react";
+import { Typography, List, Button } from "antd";
 import { Bar } from "react-chartjs-2";
+import { createPDF } from "../../services/pdf.service";
 import "./style.css";
 
 const { Title, Text } = Typography;
 
 const RoomSizeReport = (props) => {
+  const chartRef = useRef(null);
+
   let studioSold = 0;
   let onePlusOneSold = 0;
   let twoPlusOneSold = 0;
@@ -93,25 +96,41 @@ const RoomSizeReport = (props) => {
     });
   }
 
-  const soldListData = soldObjList.map((obj) => (
-    <Text>
-      With the room size of <b>{obj.room}</b>, there has been <b>{obj.sale}</b>{" "}
-      sales.
-    </Text>
-  ));
+  const soldListTexts = soldObjList.map(
+    (obj) =>
+      `With the room size of ${obj.room}, there has been ${obj.sale} sales.`
+  );
 
-  const rentalListData = rentalObjList.map((obj) => (
-    <Text>
-      With the room size of <b>{obj.room}</b>, there has been <b>{obj.sale}</b>{" "}
-      rentals.
-    </Text>
-  ));
+  const rentalListTexts = soldObjList.map(
+    (obj) =>
+      `With the room size of ${obj.room}, there has been ${obj.sale} rentals.`
+  );
 
+  const soldListData = soldListTexts.map((text) => <Text>{text}</Text>);
+
+  const rentalListData = rentalListTexts.map((text) => <Text>{text}</Text>);
+
+  const texts = [...soldListTexts, ...rentalListTexts];
   const listData = [...soldListData, ...rentalListData];
 
   return (
     <div className="roomSizeReport">
-      <Title level={3}>Analysis</Title>
+      <div className="titleButton-flex">
+        <Title level={3}>Analysis</Title>
+        <Button
+          onClick={() =>
+            createPDF(
+              "Sale Report(Room-Size)",
+              "Number of estate sales/rentals made, filtered by room size.",
+              texts,
+              chartRef
+            )
+          }
+          type="dashed"
+        >
+          Download PDF
+        </Button>
+      </div>
       <div className="report-flex">
         <List
           size="small"
@@ -124,6 +143,7 @@ const RoomSizeReport = (props) => {
         <div>
           <Bar
             data={data}
+            ref={chartRef}
             width={600}
             height={300}
             options={{
