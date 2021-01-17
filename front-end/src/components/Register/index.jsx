@@ -1,7 +1,17 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../actions/auth";
-import { Form, Input, Button, Avatar, Alert, Row, Col, Typography } from "antd";
+import {
+  Form,
+  Input,
+  Button,
+  Avatar,
+  Alert,
+  Row,
+  Col,
+  Typography,
+  Divider,
+} from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "./style.css";
 
@@ -44,8 +54,9 @@ const Register = () => {
 
   return (
     <div className="register">
-      <Title>Reporting-System</Title>
-      <br />
+      <Divider>
+        <Title>Reporting-System</Title>
+      </Divider>
       <div className="avatar-wrapper">
         <Avatar
           size={{

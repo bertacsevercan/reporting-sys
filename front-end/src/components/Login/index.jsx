@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { login } from "../../actions/auth";
-import { Form, Input, Button, Avatar, Alert, Typography } from "antd";
+import { Form, Input, Button, Avatar, Alert, Typography, Divider } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "./style.css";
 
@@ -51,8 +51,9 @@ const Login = (props) => {
 
   return (
     <div className="login">
-      <Title>Reporting-System</Title>
-      <br />
+      <Divider>
+        <Title>Reporting-System</Title>
+      </Divider>
       <div className="avatar-wrapper">
         <Avatar
           size={{
