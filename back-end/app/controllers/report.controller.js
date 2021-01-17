@@ -1,7 +1,5 @@
 const db = require("../models");
-const { QueryTypes } = require("sequelize");
 
-const User = db.user;
 const Report = db.report;
 const sq = db.sequelize;
 const Op = db.Sequelize.Op;

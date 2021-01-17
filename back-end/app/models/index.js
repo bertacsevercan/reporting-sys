@@ -22,6 +22,7 @@ db.sequelize = sequelize;
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
 db.role = require("../models/role.model.js")(sequelize, Sequelize);
 db.report = require("../models/report.model.js")(sequelize, Sequelize);
+db.file = require("../models/file.model.js")(sequelize, Sequelize);
 
 db.role.belongsToMany(db.user, {
   through: "user_roles",
@@ -44,6 +45,18 @@ db.user.belongsToMany(db.report, {
 db.report.belongsToMany(db.user, {
   through: "user_reports",
   foreignKey: "reportId",
+  otherKey: "userId",
+});
+
+db.user.belongsToMany(db.file, {
+  through: "user_file",
+  foreignKey: "userId",
+  otherKey: "fileId",
+});
+
+db.file.belongsToMany(db.user, {
+  through: "user_file",
+  foreignKey: "fileId",
   otherKey: "userId",
 });
 
