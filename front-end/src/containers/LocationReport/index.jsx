@@ -3,11 +3,13 @@ import { Typography, List, Button, Row, Col } from "antd";
 import { Bar } from "react-chartjs-2";
 import { createPDF } from "../../services/pdf.service";
 import "./style.css";
+import { useTranslation } from "react-i18next";
 
 const { Title, Text } = Typography;
 
 const LocationReport = (props) => {
   const chartRef = useRef(null);
+  const { t } = useTranslation();
 
   let izmirSold = 0;
   let istanbulSold = 0;
@@ -60,7 +62,7 @@ const LocationReport = (props) => {
   );
 
   const data = {
-    labels: ["İzmir", "Istanbul", "Ankara", "Konya", "Kocaeli"],
+    labels: ["Izmir", "Istanbul", "Ankara", "Konya", "Kocaeli"],
     datasets: [
       {
         label: ["Sold"],
@@ -109,7 +111,7 @@ const LocationReport = (props) => {
   return (
     <div className="report-wrapper">
       <div className="titleButton-flex">
-        <Title level={3}>Analysis</Title>
+        <Title level={3}>{t("report.texts.text9")}</Title>
         <Button
           onClick={() =>
             createPDF(
@@ -121,7 +123,7 @@ const LocationReport = (props) => {
           }
           type="dashed"
         >
-          Download PDF
+          {t("report.texts.text10")}
         </Button>
       </div>
       <div>
@@ -130,7 +132,7 @@ const LocationReport = (props) => {
             <List
               size="small"
               pagination={{ pageSize: 5 }}
-              header="Number of estate sales/rentals made, filtered by location."
+              header={t("location.texts.text2")}
               bordered
               dataSource={listData}
               renderItem={(item) => <List.Item>{item}</List.Item>}
@@ -140,8 +142,8 @@ const LocationReport = (props) => {
             <Bar
               data={data}
               ref={chartRef}
-              /*   width={600}
-            height={300} */
+              width={600}
+              height={300}
               options={{
                 maintainAspectRatio: false,
               }}

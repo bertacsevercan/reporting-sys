@@ -3,11 +3,13 @@ import { Typography, List, Button, Row, Col } from "antd";
 import { Bar } from "react-chartjs-2";
 import { createPDF } from "../../services/pdf.service";
 import "./style.css";
+import { useTranslation } from "react-i18next";
 
 const { Title, Text } = Typography;
 
 const RoomSizeReport = (props) => {
   const chartRef = useRef(null);
+  const { t } = useTranslation();
 
   let studioSold = 0;
   let onePlusOneSold = 0;
@@ -116,19 +118,19 @@ const RoomSizeReport = (props) => {
   return (
     <div className="report-wrapper">
       <div className="titleButton-flex">
-        <Title level={3}>Analysis</Title>
+        <Title level={3}>{t("report.texts.text9")}</Title>
         <Button
           onClick={() =>
             createPDF(
               "Sale Report(Room-Size)",
-              "Number of estate sales/rentals made, filtered by room size.",
+              "Number of estate sales/rentals made, filtered by room type.",
               texts,
               chartRef
             )
           }
           type="dashed"
         >
-          Download PDF
+          {t("report.texts.text10")}
         </Button>
       </div>
       <div>
@@ -137,7 +139,7 @@ const RoomSizeReport = (props) => {
             <List
               size="small"
               pagination={{ pageSize: 5 }}
-              header="Number of estate sales/rentals made, filtered by room type."
+              header={t("room.texts.text2")}
               bordered
               dataSource={listData}
               renderItem={(item) => <List.Item>{item}</List.Item>}
@@ -148,10 +150,10 @@ const RoomSizeReport = (props) => {
               <Bar
                 data={data}
                 ref={chartRef}
-                /*    width={600}
-            height={300} */
+                width={600}
+                height={300}
                 options={{
-                  maintainAspectRatio: true,
+                  maintainAspectRatio: false,
                 }}
               />
             </div>

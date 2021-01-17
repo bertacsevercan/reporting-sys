@@ -1,13 +1,102 @@
 {
   "navbar": {
     "titles": {
-      "title0": "Kullanıcı Paneli",
       "title1": "Profil",
       "title2": "Dil",
       "title3": "Türkçe",
       "title4": "İngilizce",
       "title5": "Çıkış",
-      "title6": "Admin Paneli"
+      "title6": "Raporlar"
+    }
+  },
+  "login": {
+    "title": "Rapor Sistemi",
+    "texts": {
+      "text1": "Kullanıcı Adı",
+      "text2": "Şifre",
+      "text3": "Giriş",
+      "text4": "Kayıt",
+      "text5": "E-posta"
+    },
+    "messages": {
+      "message1": "Lütfen kullanıcı adınızı girin!",
+      "message2": "Lütfen şifrenizi girin!",
+      "message3": "Lütfen e-posta girin!",
+      "message4": "Girdiğiniz e-posta geçerli değil!"
+    }
+  },
+  "profile": " Profili",
+  "report": {
+    "texts": {
+      "text1": "Satış Miktarı",
+      "text2": "Satış Tipi",
+      "text3": "Lokasyon",
+      "text4": "Emlak Tipi",
+      "text5": "Oda Sayısı",
+      "text6": "Tarih",
+      "text7": "Gönder",
+      "text8": "Satış Raporu",
+      "text9": "Analiz",
+      "text10": "PDF İndir"
+    },
+    "messages": {
+      "message1": "Lütfen satış miktarını girin!",
+      "message2": "Lütfen satış tipini girin!",
+      "message3": "Lütfen listeden satış tipini seçin!",
+      "message4": "Lütfen lokasyon seçin!",
+      "message5": "Lütfen listeden lokasyon seçin!",
+      "message6": "Lütfen emlak tipini seçin!",
+      "message7": "Lütfen listeden emlak tipini seçin!",
+      "message8": "Lütfen oda sayısını girin!",
+      "message9": "Lütfen listeden oda sayısını seçin!",
+      "message10": "Lütfen ay ve yılı seçin!",
+      "message11": "Ay/yıl seç"
+    },
+    "values": {
+      "val1": "Satılık",
+      "val2": "Kiralık",
+      "val3": "Müstakil Ev",
+      "val4": "Apartmant",
+      "val5": "Rezidans",
+      "val6": "Site",
+      "val7": "Dükkan"
+    },
+    "tabs": {
+      "tab1": "Lokasyon",
+      "tab2": "Aylık",
+      "tab3": "Emlak-Tipi",
+      "tab4": "Oda-Sayısı",
+      "tab5": "Yıllık"
+    }
+  },
+  "estate": {
+    "texts": {
+      "text1": "Satış raporu(Emlak-Tipi)",
+      "text2": "Emlak tipine göre ayrılmış, kiralık/satılık emlak satış sayısı."
+    }
+  },
+  "location": {
+    "texts": {
+      "text1": "Satış Raporu(Lokasyon)",
+      "text2": "Lokasyona göre ayrılmış, kiralık/satılık emlak satış sayısı."
+    }
+  },
+  "monthly": {
+    "texts": {
+      "text1": "Satış Raporu(Aylık)",
+      "text2": "Şu anki yılın aylarına göre ayrılmış, kiralık/satılık emlak satış sayısı."
+    }
+  },
+  "room": {
+    "texts": {
+      "text1": "Satış Raporu(Oda-Sayısı)",
+      "text2": "Oda sayısına göre ayrılmış, kiralık/satılık emlak satış sayısı."
+    }
+  },
+  "yearly": {
+    "texts": {
+      "text1": "Satış Raporu(Yıllık)",
+      "text2": "Yıllara göre ayrılmış, kiralık/satılık emlak satış sayısı."
     }
   }
 }

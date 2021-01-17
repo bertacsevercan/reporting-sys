@@ -3,11 +3,13 @@ import { Typography, List, Button, Row, Col } from "antd";
 import { Bar } from "react-chartjs-2";
 import { createPDF } from "../../services/pdf.service";
 import "./style.css";
+import { useTranslation } from "react-i18next";
 
 const { Title, Text } = Typography;
 
 const MonthlyReport = (props) => {
   const chartRef = useRef(null);
+  const { t } = useTranslation();
 
   let janSold = 0;
   let febSold = 0;
@@ -257,11 +259,11 @@ const MonthlyReport = (props) => {
   return (
     <div className="report-wrapper">
       <div className="titleButton-flex">
-        <Title level={3}>Analysis</Title>
+        <Title level={3}>{t("report.texts.text9")}</Title>
         <Button
           onClick={() =>
             createPDF(
-              "Sale Report(Monthly)",
+              "Sale Report(Montly)",
               "Number of estate sales/rentals made, filtered by the months of the current year.",
               texts,
               chartRef,
@@ -270,7 +272,7 @@ const MonthlyReport = (props) => {
           }
           type="dashed"
         >
-          Download PDF
+          {t("report.texts.text10")}
         </Button>
       </div>
       <div className="report-flex">
@@ -279,7 +281,7 @@ const MonthlyReport = (props) => {
             <List
               size="small"
               pagination={{ pageSize: 6 }}
-              header="Number of estate sales/rentals made, filtered by the months of the current year."
+              header={t("monthly.texts.text2")}
               bordered
               dataSource={listData}
               renderItem={(item) => <List.Item>{item}</List.Item>}
@@ -289,10 +291,10 @@ const MonthlyReport = (props) => {
             <Bar
               data={data}
               ref={chartRef}
-              /*   width={600}
-            height={300} */
+              width={600}
+              height={300}
               options={{
-                maintainAspectRatio: true,
+                maintainAspectRatio: false,
               }}
             />
           </Col>

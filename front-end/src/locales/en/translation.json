@@ -1,13 +1,102 @@
 {
   "navbar": {
     "titles": {
-      "title0": "User Dashboard",
       "title1": "Profile",
       "title2": "Language",
       "title3": "Turkish",
       "title4": "English",
       "title5": "Log Out",
-      "title6": "Admin Board"
+      "title6": "Reports"
+    }
+  },
+  "login": {
+    "title": "Reporting System",
+    "texts": {
+      "text1": "Username",
+      "text2": "Password",
+      "text3": "Login",
+      "text4": "Register",
+      "text5": "E-mail"
+    },
+    "messages": {
+      "message1": "Please input your username!",
+      "message2": "Please input your password!",
+      "message3": "Please input your e-mail!",
+      "message4": "The input is not valid e-mail!"
+    }
+  },
+  "profile": "'s Profile",
+  "report": {
+    "texts": {
+      "text1": "Sale Amount",
+      "text2": "Sale Type",
+      "text3": "Location",
+      "text4": "Estate Type",
+      "text5": "Room Size",
+      "text6": "Date",
+      "text7": "Submit",
+      "text8": "Sale Report",
+      "text9": "Analysis",
+      "text10": "Download PDF"
+    },
+    "messages": {
+      "message1": "Please enter the sale amount!",
+      "message2": "Please choose the type of sale!",
+      "message3": "Select the type of sale from the list!",
+      "message4": "Please choose the location!",
+      "message5": "Select the location from the list!",
+      "message6": "Please choose the type of estate from the list!",
+      "message7": "Select the type of estate from the list!",
+      "message8": "Please choose the number of rooms from the list!",
+      "message9": "Select the number of rooms from the list!",
+      "message10": "Please select month and year of sale!",
+      "message11": "Select month/year"
+    },
+    "values": {
+      "val1": "Sold",
+      "val2": "Rental",
+      "val3": "Single Family",
+      "val4": "Apartment",
+      "val5": "Condo",
+      "val6": "Co-op",
+      "val7": "Store"
+    },
+    "tabs": {
+      "tab1": "Location",
+      "tab2": "Monthly",
+      "tab3": "Estate-Type",
+      "tab4": "Room-Size",
+      "tab5": "Yearly"
+    }
+  },
+  "estate": {
+    "texts": {
+      "text1": "Sale Report(Estate-Type)",
+      "text2": "Number of estate sales/rentals made, filtered by estate type."
+    }
+  },
+  "location": {
+    "texts": {
+      "text1": "Sale Report(Location)",
+      "text2": "Number of estate sales/rentals made, filtered by location."
+    }
+  },
+  "monthly": {
+    "texts": {
+      "text1": "Sale Report(Montly)",
+      "text2": "Number of estate sales/rentals made, filtered by the months of the current year."
+    }
+  },
+  "room": {
+    "texts": {
+      "text1": "Sale Report(Room-Size)",
+      "text2": "Number of estate sales/rentals made, filtered by room type."
+    }
+  },
+  "yearly": {
+    "texts": {
+      "text1": "Sale Report(Yearly)",
+      "text2": "Number of estate sales/rentals made, filtered by year."
     }
   }
 }

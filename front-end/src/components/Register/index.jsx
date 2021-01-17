@@ -14,6 +14,7 @@ import {
 } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "./style.css";
+import { useTranslation } from "react-i18next";
 
 const { Title } = Typography;
 
@@ -34,6 +35,7 @@ const tailLayout = {
 };
 
 const Register = () => {
+  const { t } = useTranslation();
   const [successful, setSuccessful] = useState(false);
   const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
@@ -55,7 +57,7 @@ const Register = () => {
   return (
     <div className="register">
       <Divider>
-        <Title>Reporting-System</Title>
+        <Title>{t("login.title")}</Title>
       </Divider>
       <div className="avatar-wrapper">
         <Avatar
@@ -82,12 +84,12 @@ const Register = () => {
         {!successful && (
           <>
             <Form.Item
-              label="Username"
+              label={t("login.texts.text1")}
               name="username"
               rules={[
                 {
                   required: true,
-                  message: "Please input your username!",
+                  message: t("login.messages.message1"),
                 },
               ]}
             >
@@ -100,11 +102,11 @@ const Register = () => {
               rules={[
                 {
                   type: "email",
-                  message: "The input is not valid E-mail!",
+                  message: t("login.messages.message4"),
                 },
                 {
                   required: true,
-                  message: "Please input your E-mail!",
+                  message: t("login.messages.message3"),
                 },
               ]}
             >
@@ -112,12 +114,12 @@ const Register = () => {
             </Form.Item>
 
             <Form.Item
-              label="Password"
+              label={t("login.texts.text2")}
               name="password"
               rules={[
                 {
                   required: true,
-                  message: "Please input your password!",
+                  message: t("login.messages.message2"),
                 },
               ]}
             >
@@ -126,10 +128,10 @@ const Register = () => {
 
             <Form.Item {...tailLayout}>
               <Button id="registerButton" type="primary" htmlType="submit">
-                Register
+                {t("login.texts.text4")}
               </Button>
 
-              <Button href="/login">Login</Button>
+              <Button href="/login">{t("login.texts.text3")}</Button>
             </Form.Item>
           </>
         )}
@@ -147,7 +149,7 @@ const Register = () => {
             <Row gutter={[0, 24]}>
               <Col offset={6} span={12}>
                 <Button href="/login" type="primary">
-                  Login
+                  {t("login.texts.text3")}
                 </Button>
               </Col>
             </Row>

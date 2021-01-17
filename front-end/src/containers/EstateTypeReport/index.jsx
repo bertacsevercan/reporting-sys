@@ -3,10 +3,12 @@ import { Typography, List, Button, Row, Col } from "antd";
 import { createPDF } from "../../services/pdf.service";
 import { Bar } from "react-chartjs-2";
 import "./style.css";
+import { useTranslation } from "react-i18next";
 
 const { Title, Text } = Typography;
 
 const EstateTypeReport = (props) => {
+  const { t } = useTranslation();
   const chartRef = useRef(null);
 
   let familySold = 0;
@@ -114,11 +116,8 @@ const EstateTypeReport = (props) => {
 
   return (
     <div className="report-wrapper">
-      <div
-        className="titleButton-flex"
-        style={{ display: props.hide ? props.hide : "-moz-initial" }}
-      >
-        <Title level={3}>Analysis</Title>
+      <div className="titleButton-flex">
+        <Title level={3}>{t("report.texts.text9")}</Title>
         <Button
           onClick={() =>
             createPDF(
@@ -130,7 +129,7 @@ const EstateTypeReport = (props) => {
           }
           type="dashed"
         >
-          Download PDF
+          {t("report.texts.text10")}
         </Button>
       </div>
       <div>
@@ -139,7 +138,7 @@ const EstateTypeReport = (props) => {
             <List
               size="small"
               pagination={{ pageSize: 5 }}
-              header="Number of estate sales/rentals made, filtered by estate type."
+              header={t("estate.texts.text2")}
               bordered
               dataSource={listData}
               renderItem={(item) => <List.Item>{item}</List.Item>}
@@ -149,8 +148,8 @@ const EstateTypeReport = (props) => {
             <Bar
               data={data}
               ref={chartRef}
-              /*    width={600}
-            height={300}  */
+              width={600}
+              height={300}
               options={{
                 maintainAspectRatio: false,
               }}

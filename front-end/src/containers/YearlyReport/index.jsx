@@ -3,11 +3,14 @@ import { Typography, List, Button, Col, Row } from "antd";
 import { createPDF } from "../../services/pdf.service";
 import { Bar } from "react-chartjs-2";
 import "./style.css";
+import { useTranslation } from "react-i18next";
 
 const { Title, Text } = Typography;
 
 const YearlyReport = (props) => {
   const chartRef = useRef(null);
+
+  const { t } = useTranslation();
 
   let firstYearSold = 0;
   let secondYearSold = 0;
@@ -147,7 +150,7 @@ const YearlyReport = (props) => {
   return (
     <div className="report-wrapper">
       <div className="titleButton-flex">
-        <Title level={3}>Analysis</Title>
+        <Title level={3}>{t("report.texts.text9")}</Title>
         <Button
           onClick={() =>
             createPDF(
@@ -159,7 +162,7 @@ const YearlyReport = (props) => {
           }
           type="dashed"
         >
-          Download PDF
+          {t("report.texts.text10")}
         </Button>
       </div>
       <Row justify="center" gutter={[16, 16]}>
@@ -167,7 +170,7 @@ const YearlyReport = (props) => {
           <List
             size="small"
             pagination={{ pageSize: 5 }}
-            header="Number of estate sales/rentals made, filtered by year."
+            header={t("yearly.texts.text2")}
             bordered
             dataSource={listData}
             renderItem={(item) => <List.Item>{item}</List.Item>}
@@ -177,10 +180,10 @@ const YearlyReport = (props) => {
           <Bar
             data={data}
             ref={chartRef}
-            /*  width={600}
-            height={300} */
+            width={600}
+            height={300}
             options={{
-              maintainAspectRatio: true,
+              maintainAspectRatio: false,
             }}
           />
         </Col>

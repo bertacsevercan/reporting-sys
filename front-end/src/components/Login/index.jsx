@@ -5,6 +5,7 @@ import { login } from "../../actions/auth";
 import { Form, Input, Button, Avatar, Alert, Typography, Divider } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "./style.css";
+import { useTranslation } from "react-i18next";
 
 const { Title } = Typography;
 
@@ -27,13 +28,13 @@ const tailLayout = {
 const Login = (props) => {
   const { isLoggedIn } = useSelector((state) => state.auth);
   const { message } = useSelector((state) => state.message);
-
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleLogin = (values) => {
     dispatch(login(values.username, values.password))
       .then(() => {
-        props.history.push("/user");
+        props.history.push("/report");
         window.location.reload();
       })
       .catch((err) => {
@@ -46,13 +47,13 @@ const Login = (props) => {
   };
 
   if (isLoggedIn) {
-    return <Redirect to="/user" />;
+    return <Redirect to="/report" />;
   }
 
   return (
     <div className="login">
       <Divider>
-        <Title>Reporting-System</Title>
+        <Title>{t("login.title")}</Title>
       </Divider>
       <div className="avatar-wrapper">
         <Avatar
@@ -81,12 +82,12 @@ const Login = (props) => {
           </Form.Item>
         )}
         <Form.Item
-          label="Username"
+          label={t("login.texts.text1")}
           name="username"
           rules={[
             {
               required: true,
-              message: "Please input your username!",
+              message: t("login.messages.message1"),
             },
           ]}
         >
@@ -94,12 +95,12 @@ const Login = (props) => {
         </Form.Item>
 
         <Form.Item
-          label="Password"
+          label={t("login.texts.text2")}
           name="password"
           rules={[
             {
               required: true,
-              message: "Please input your password!",
+              message: t("login.messages.message2"),
             },
           ]}
         >
@@ -108,10 +109,10 @@ const Login = (props) => {
 
         <Form.Item {...tailLayout}>
           <Button id="loginButton" type="primary" htmlType="submit">
-            Login
+            {t("login.texts.text3")}
           </Button>
 
-          <Button href="/register">Register</Button>
+          <Button href="/register">{t("login.texts.text4")}</Button>
         </Form.Item>
       </Form>
     </div>

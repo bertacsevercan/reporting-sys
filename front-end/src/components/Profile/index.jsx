@@ -8,11 +8,13 @@ import {
 } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import "./style.css";
+import { useTranslation } from "react-i18next";
 
 const { Title, Text } = Typography;
 const { Meta } = Card;
 
 const Profile = () => {
+  const { t } = useTranslation();
   const { user: currentUser } = useSelector((state) => state.auth);
 
   if (!currentUser) {
@@ -23,7 +25,7 @@ const Profile = () => {
     <div className="profile">
       <Divider>
         <Title>
-          <strong>{currentUser.username}</strong>'s Profile
+          <strong>{currentUser.username}</strong> {t("profile")}
         </Title>
       </Divider>
       <div className="card-wrapper">

@@ -32,7 +32,7 @@ const NavBar = () => {
       <Menu theme="dark" mode="inline" defaultSelectedKeys="1">
         <Menu.Item key="1" icon={<AreaChartOutlined />}>
           <Link to="/report" className="nav-link">
-            Report
+            {t("navbar.titles.title6")}
           </Link>
         </Menu.Item>
         <Menu.Item key="2" icon={<UserOutlined />}>
