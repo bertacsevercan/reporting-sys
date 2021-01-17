@@ -1,12 +1,10 @@
 import {
   CREATE_REPORT_FAIL,
   CREATE_REPORT_SUCCESS,
-  FETCH_REPORT_FAIL,
-  FETCH_REPORT_SUCCESS,
   SET_MESSAGE,
 } from "./types";
 
-import { createReport, getReports } from "../services/report.service";
+import { createReport } from "../services/report.service";
 
 export const createNewReport = (
   saleAmount,
