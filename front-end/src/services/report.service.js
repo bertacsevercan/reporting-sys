@@ -23,8 +23,32 @@ export const createReport = (
   });
 };
 
-export const getReports = (userId) => {
+export const getAllReports = (userId) => {
   return userId
     ? axios.get(API_URL + "?userId=" + userId, { headers: authHeader() })
     : axios.get(API_URL, { headers: authHeader() });
+};
+
+export const getLocationReports = (userId, type) => {
+  return axios.get(API_URL + "/location?userId=" + userId + "&type=" + type, {
+    headers: authHeader(),
+  });
+};
+
+export const getEstateReports = (userId, type) => {
+  return axios.get(API_URL + "/estate?userId=" + userId + "&type=" + type, {
+    headers: authHeader(),
+  });
+};
+
+export const getRoomReports = (userId, type) => {
+  return axios.get(API_URL + "/rooms?userId=" + userId + "&type=" + type, {
+    headers: authHeader(),
+  });
+};
+
+export const getDateReports = (userId, type) => {
+  return axios.get(API_URL + "/date?userId=" + userId + "&type=" + type, {
+    headers: authHeader(),
+  });
 };

@@ -55,7 +55,7 @@ export const createNewReport = (
     }
   );
 };
-
+/* 
 export const fetchReports = (userId) => (dispatch) => {
   return getReports(userId).then(
     (res) => {
@@ -86,4 +86,4 @@ export const fetchReports = (userId) => (dispatch) => {
       return Promise.reject();
     }
   );
-};
+}; */

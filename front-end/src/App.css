@@ -17,5 +17,11 @@
 
 .site-layout-content {
   background-color: #fff;
-  min-height: 85vh;
+  min-height: 100vh;
+}
+
+@media screen and (max-width: 600px) {
+  .ant-layout-content {
+    padding: 5px 5px 0 5px;
+  }
 }

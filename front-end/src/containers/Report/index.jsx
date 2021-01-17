@@ -5,7 +5,7 @@ import { Typography, Tabs, Divider } from "antd";
 import LocationReport from "../LocationReport";
 import EstateTypeReport from "../EstateTypeReport";
 import "./style.css";
-import { getReports } from "../../services/report.service";
+import { getAllReports } from "../../services/report.service";
 import RoomSizeReport from "../RoomSizeReport";
 import YearlyReport from "../YearlyReport";
 import MonthlyReport from "../MonthlyReport";
@@ -19,7 +19,7 @@ const Report = () => {
   const { user: currentUser } = useSelector((state) => state.auth);
 
   useEffect(() => {
-    getReports(currentUser.id)
+    getAllReports(currentUser.id)
       .then((res) => {
         console.log(res.data);
         setData(res.data);

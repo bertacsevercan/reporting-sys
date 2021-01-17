@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import {
   UserOutlined,
-  BookOutlined,
   LogoutOutlined,
   GlobalOutlined,
   AreaChartOutlined,
@@ -19,15 +18,8 @@ const { SubMenu } = Menu;
 
 const NavBar = () => {
   const { t } = useTranslation();
-  const [showAdminBoard, setShowAdminBoard] = useState(false);
   const { user: currentUser } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (currentUser) {
-      setShowAdminBoard(currentUser.roles.includes("ROLE_ADMIN"));
-    }
-  }, [currentUser]);
 
   const logOut = () => {
     dispatch(logout());
@@ -37,26 +29,12 @@ const NavBar = () => {
     <Sider breakpoint="lg" collapsedWidth="0">
       <div className="logo">Reporting System</div>
 
-      <Menu
-        theme="dark"
-        mode="inline"
-        defaultSelectedKeys={showAdminBoard ? ["4"] : ["1"]}
-      >
-        {showAdminBoard && (
-          <Menu.Item key="4" icon={<BookOutlined />}>
-            <Link to={"/admin"} className="nav-link">
-              {t("navbar.titles.title6")}
-            </Link>
-          </Menu.Item>
-        )}
-
-        {currentUser && (
-          <Menu.Item key="1" icon={<BookOutlined />}>
-            <Link to={"/user"} className="nav-link">
-              {t("navbar.titles.title0")}
-            </Link>
-          </Menu.Item>
-        )}
+      <Menu theme="dark" mode="inline" defaultSelectedKeys="1">
+        <Menu.Item key="1" icon={<AreaChartOutlined />}>
+          <Link to="/report" className="nav-link">
+            Report
+          </Link>
+        </Menu.Item>
         <Menu.Item key="2" icon={<UserOutlined />}>
           <Link to="/profile" className="nav-link">
             {currentUser.username + " " + t("navbar.titles.title1")}
@@ -84,11 +62,7 @@ const NavBar = () => {
             {t("navbar.titles.title4")}
           </Menu.Item>
         </SubMenu>
-        <Menu.Item key="7" icon={<AreaChartOutlined />}>
-          <Link to="/report" className="nav-link">
-            Report
-          </Link>
-        </Menu.Item>
+
         <Menu.Item key="3" icon={<LogoutOutlined />}>
           <a href="/login" className="nav-link" onClick={logOut}>
             {t("navbar.titles.title5")}

@@ -60,7 +60,7 @@ const LocationReport = (props) => {
   );
 
   const data = {
-    labels: ["Izmir", "Istanbul", "Ankara", "Konya", "Kocaeli"],
+    labels: ["İzmir", "Istanbul", "Ankara", "Konya", "Kocaeli"],
     datasets: [
       {
         label: ["Sold"],
@@ -103,21 +103,6 @@ const LocationReport = (props) => {
 
   const rentalListData = rentalListTexts.map((text) => <Text>{text}</Text>);
 
-  /*   const soldListData = soldObjList.map((obj) => (
-    <Text>
-      In the location of <b>{obj.location}</b>, there has been <b>{obj.sale}</b>{" "}
-      sales.
-    </Text>
-  ));
-
-  const rentalListData = rentalObjList.map((obj) => (
-    <Text>
-      In the location of <b>{obj.location}</b>, there has been <b>{obj.sale}</b>{" "}
-      rentals.
-    </Text>
-  ));
- */
-
   const texts = [...soldListTexts, ...rentalListTexts];
   const listData = [...soldListData, ...rentalListData];
 
@@ -158,7 +143,7 @@ const LocationReport = (props) => {
               /*   width={600}
             height={300} */
               options={{
-                maintainAspectRatio: true,
+                maintainAspectRatio: false,
               }}
             />
           </Col>

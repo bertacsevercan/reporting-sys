@@ -12,8 +12,6 @@ import "./App.css";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
-import BoardUser from "./components/BoardUser";
-import BoardAdmin from "./components/BoardAdmin";
 import { Layout } from "antd";
 import NavBar from "./components/NavBar";
 import Report from "./containers/Report";
@@ -43,8 +41,6 @@ function App() {
                     <Route exact path={["/", "/login"]} component={Login} />
                     <Route exact path="/register" component={Register} />
                     <Route exact path="/profile" component={Profile} />
-                    <Route path="/user" component={BoardUser} />
-                    <Route path="/admin" component={BoardAdmin} />
                     <Route path="/report" component={Report} />
                   </Switch>
                 </div>

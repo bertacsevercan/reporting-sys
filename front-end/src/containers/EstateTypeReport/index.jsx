@@ -114,7 +114,10 @@ const EstateTypeReport = (props) => {
 
   return (
     <div className="report-wrapper">
-      <div className="titleButton-flex">
+      <div
+        className="titleButton-flex"
+        style={{ display: props.hide ? props.hide : "-moz-initial" }}
+      >
         <Title level={3}>Analysis</Title>
         <Button
           onClick={() =>
@@ -146,10 +149,10 @@ const EstateTypeReport = (props) => {
             <Bar
               data={data}
               ref={chartRef}
-              /*  width={600}
-            height={300} */
+              /*    width={600}
+            height={300}  */
               options={{
-                maintainAspectRatio: true,
+                maintainAspectRatio: false,
               }}
             />
           </Col>
