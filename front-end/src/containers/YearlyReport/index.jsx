@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Typography, List, Button } from "antd";
+import { Typography, List, Button, Col, Row } from "antd";
 import { createPDF } from "../../services/pdf.service";
 import { Bar } from "react-chartjs-2";
 import "./style.css";
@@ -145,7 +145,7 @@ const YearlyReport = (props) => {
   const texts = [...soldListTexts, ...rentalListTexts];
 
   return (
-    <div className="yearlyReport">
+    <div className="report-wrapper">
       <div className="titleButton-flex">
         <Title level={3}>Analysis</Title>
         <Button
@@ -162,27 +162,29 @@ const YearlyReport = (props) => {
           Download PDF
         </Button>
       </div>
-      <div className="report-flex">
-        <List
-          size="small"
-          pagination={{ pageSize: 5 }}
-          header="Number of estate sales/rentals made, filtered by year."
-          bordered
-          dataSource={listData}
-          renderItem={(item) => <List.Item>{item}</List.Item>}
-        />
-        <div>
+      <Row justify="center" gutter={[16, 16]}>
+        <Col lg={24} xl={12}>
+          <List
+            size="small"
+            pagination={{ pageSize: 5 }}
+            header="Number of estate sales/rentals made, filtered by year."
+            bordered
+            dataSource={listData}
+            renderItem={(item) => <List.Item>{item}</List.Item>}
+          />
+        </Col>
+        <Col lg={24} xl={12}>
           <Bar
             data={data}
             ref={chartRef}
-            width={600}
-            height={300}
+            /*  width={600}
+            height={300} */
             options={{
               maintainAspectRatio: true,
             }}
           />
-        </div>
-      </div>
+        </Col>
+      </Row>
     </div>
   );
 };

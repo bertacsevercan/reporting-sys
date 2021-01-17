@@ -1,8 +1,6 @@
 .App {
   text-align: center;
-  max-height: 100vh;
-  height: 100vh;
-  /* font-size: larger; */
+  min-height: 100vh;
 }
 
 #footer {
@@ -19,5 +17,5 @@
 
 .site-layout-content {
   background-color: #fff;
-  height: 85vh;
+  min-height: 85vh;
 }

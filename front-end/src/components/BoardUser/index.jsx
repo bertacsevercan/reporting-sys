@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getUserBoard } from "../../services/user.service";
 import { useSelector } from "react-redux";
-import { Typography } from "antd";
+import { Typography, Divider } from "antd";
 import "./style.css";
 
 const { Title } = Typography;
@@ -30,7 +30,9 @@ const BoardUser = () => {
 
   return (
     <div className="boardUser">
-      <Title>Welcome {currentUser.username}</Title>
+      <Divider>
+        <Title>Welcome {currentUser.username}</Title>
+      </Divider>
       <Title level={3}>{content}</Title>
     </div>
   );

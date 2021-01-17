@@ -1,8 +1,11 @@
 .profile {
-  padding-top: 2rem;
+  padding: 1rem;
+}
+
+.profile h1 {
+  padding-bottom: 2rem;
 }
 
 .card-wrapper {
-  display: flex;
-  justify-content: center;
+  text-align: left;
 }

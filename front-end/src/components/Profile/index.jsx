@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect } from "react-router-dom";
-import { Card, Avatar, Typography } from "antd";
+import { Card, Avatar, Typography, Row, Col, Divider } from "antd";
 import {
   EditOutlined,
   EllipsisOutlined,
@@ -9,7 +9,7 @@ import {
 import { useSelector } from "react-redux";
 import "./style.css";
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 const { Meta } = Card;
 
 const Profile = () => {
@@ -21,32 +21,49 @@ const Profile = () => {
 
   return (
     <div className="profile">
-      <Title>
-        <strong>{currentUser.username}</strong>'s Profile
-      </Title>
+      <Divider>
+        <Title>
+          <strong>{currentUser.username}</strong>'s Profile
+        </Title>
+      </Divider>
       <div className="card-wrapper">
-        <Card
-          style={{ width: 300, marginTop: 16 }}
-          cover={
-            <img
-              alt="example"
-              src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-            />
-          }
-          actions={[
-            <SettingOutlined key="setting" />,
-            <EditOutlined key="edit" />,
-            <EllipsisOutlined key="ellipsis" />,
-          ]}
-        >
-          <Meta
-            avatar={
-              <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-            }
-            title={currentUser.username}
-            description={`Email: ${currentUser.email}`}
-          />
-        </Card>
+        <Row justify="space-around" gutter={[0, 16]}>
+          <Col sm={24} md={12} lg={8}>
+            <Card
+              cover={
+                <img
+                  alt="example"
+                  src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                />
+              }
+              actions={[
+                <SettingOutlined key="setting" />,
+                <EditOutlined key="edit" />,
+                <EllipsisOutlined key="ellipsis" />,
+              ]}
+            >
+              <Meta
+                avatar={
+                  <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+                }
+                title={currentUser.username}
+                description={`Email: ${currentUser.email}`}
+              />
+            </Card>
+          </Col>
+          <Col sm={24} md={12} lg={8}>
+            <div>
+              <Card title="Lorem Ipsum!">
+                <Text>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam
+                  corrupti, natus nulla obcaecati praesentium alias placeat
+                  consectetur repellat nihil at earum illum error quisquam eaque
+                  nemo sit aspernatur possimus adipisci!
+                </Text>
+              </Card>
+            </div>
+          </Col>
+        </Row>
       </div>
     </div>
   );

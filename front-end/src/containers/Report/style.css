@@ -1,11 +1,21 @@
 .report {
-  padding-top: 2rem;
-}
-
-.report h1 {
-  padding-bottom: 1rem;
+  padding: 1rem;
 }
 
 .addReportButton {
   padding-bottom: 1rem;
+}
+
+.report-wrapper {
+  padding: 0rem 1rem 1rem 1rem;
+}
+
+.titleButton-flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.report-flex {
+  display: flex;
+  justify-content: space-around;
 }

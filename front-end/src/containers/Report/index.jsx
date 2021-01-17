@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import ReportModal from "../ReportModal";
-import { Typography, Tabs } from "antd";
+import { Typography, Tabs, Divider } from "antd";
 import LocationReport from "../LocationReport";
 import EstateTypeReport from "../EstateTypeReport";
 import "./style.css";
@@ -29,7 +29,9 @@ const Report = () => {
 
   return (
     <div className="report">
-      <Title>Reports</Title>
+      <Divider>
+        <Title>Reports</Title>
+      </Divider>
       <div className="addReportButton">
         <ReportModal />
       </div>
