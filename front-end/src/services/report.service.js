@@ -1,7 +1,7 @@
 import axios from "axios";
 import authHeader from "./auth-header";
 
-const API_URL = "http://localhost:8080/api/report";
+const API_URL = "https://report-sys-server.herokuapp.com/api/report";
 
 export const createReport = (
   saleAmount,
