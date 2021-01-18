@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 
-var whitelist = ["https://reporting-sys.netlify.app", "http://localhost:8081"]
+/* var whitelist = ["https://reporting-sys.netlify.app", "http://localhost:8081"]
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1) {
@@ -14,10 +14,11 @@ var corsOptions = {
       callback(new Error('Not allowed by CORS'))
     }
   }
-}
-/* var corsOptions = {
-  origin: "https://reporting-sys.netlify.app", "http://localhost:8081", 
-}; */
+} */
+var corsOptions = {
+  origin: ["https://reporting-sys.netlify.app", "http://localhost:8081"],
+  methods: "GET,PUT,POST,DELETE"
+};
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
@@ -39,6 +40,7 @@ require("./app/routes/file.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
+console.log(PORT, "PORT")
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
