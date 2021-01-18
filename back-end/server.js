@@ -4,16 +4,26 @@ const cors = require("cors");
 
 const app = express();
 
+
+var whitelist = ["https://reporting-sys.netlify.app", "http://localhost:8081"]
 var corsOptions = {
-  origin: "http://localhost:8081",
-};
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+/* var corsOptions = {
+  origin: "https://reporting-sys.netlify.app", "http://localhost:8081", 
+}; */
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = require("./app/models");
-const Role = db.role;
 
 db.sequelize.sync();
 
