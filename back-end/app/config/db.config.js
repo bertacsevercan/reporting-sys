@@ -1,8 +1,10 @@
+const atob = require("atob");
+const PW_ENC = "RzQwY2dGY2lSUlJ6eEttRw==";
+const PW_DEC = atob(PW_ENC);
 module.exports = {
   HOST: "localhost",
   USER: "root",
-  PORT: "3306",
-  PASSWORD: "G40cgFciRRRzxKmG",
+  PASSWORD: PW_DEC,
   DB: "report_sys",
   dialect: "mysql",
   pool: {
