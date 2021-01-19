@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../actions/auth";
 import {
@@ -44,11 +44,17 @@ const Register = () => {
     dispatch(register(values.username, values.email, values.password))
       .then(() => {
         setSuccessful(true);
+        console.log("Succesful", successful);
       })
       .catch(() => {
         setSuccessful(false);
+        console.log("Failed");
       });
   };
+
+  useEffect(() => {
+    console.log("state", successful);
+  }, [successful]);
 
   const handleRegisterFailed = (err) => {
     console.log("Register failed:", err);

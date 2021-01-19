@@ -49,7 +49,7 @@ const Profile = () => {
                   <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
                 }
                 title={currentUser.username}
-                description={`Email: ${currentUser.email}`}
+                description={`Email: ${currentUser.email} and ID: ${currentUser.id}`}
               />
             </Card>
           </Col>
